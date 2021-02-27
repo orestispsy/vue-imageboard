@@ -31,8 +31,29 @@ INSERT INTO images (url, username, title, description) VALUES (
 );
 
 INSERT INTO images (url, username, title, description) VALUES (
-    'https://s3.amazonaws.com/spicedling/62RNItu3vnmuyIUHR44q7aElxDlw27Ts.jpg',
-    'orestis',
-    'Paradise',
-    'i miss you'
+    'https://s3.amazonaws.com/spicedling/AxExni7J3Rga6o5RMRQENLVuvhUz3zk3.jpg',
+    'no one knows',
+    'Look what is happening',
+    'When you sleep'
+);
+
+INSERT INTO images (url, username, title, description) VALUES (
+    'https://s3.amazonaws.com/spicedling/e6ewSiKpP1JAngVUQWg0h2dpK-2oJgGP.jpg',
+    'no one knows',
+    'Satelite transmitions',
+    'A Story about how to be above someones head...'
+);
+
+INSERT INTO images (url, username, title, description) VALUES (
+    'https://s3.amazonaws.com/spicedling/tcHLJ-Zii7BAYqUpxWg-qKwNo6B4WrgN.jpg',
+    '1000mods',
+    'SFTU',
+    '1000mods'
+);
+
+INSERT INTO images (url, username, title, description) VALUES (
+    'https://s3.amazonaws.com/spicedling/XwwJsgaR_sqp1_O__PVyIJoAWi0X-AJg.jpg',
+    'test',
+    'Aegean Wine',
+    'Sundown'
 );
