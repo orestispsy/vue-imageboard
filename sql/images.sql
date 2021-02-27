@@ -29,3 +29,10 @@ INSERT INTO images (url, username, title, description) VALUES (
     'To be or not to be',
     'That is the question.'
 );
+
+INSERT INTO images (url, username, title, description) VALUES (
+    'https://s3.amazonaws.com/spicedling/62RNItu3vnmuyIUHR44q7aElxDlw27Ts.jpg',
+    'orestis',
+    'Paradise',
+    'i miss you'
+);
