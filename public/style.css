@@ -1,7 +1,7 @@
 body {
     background-color: black;
     min-height: 100vh;
-    background-image: url("lines.jpg");
+    background-image: url("deepspace.gif");
     background-size: cover;
     display: flex;
     flex-direction: column;
@@ -15,20 +15,38 @@ body {
     justify-content: space-around;
     align-items: center;
     text-align: center;
-    font-family: fantasy;
-    background-color: rgba(0, 255, 255, 0.164);
-    height: 85vh;
-    border-radius: 2vh;
+   font-family: 'Bowlby One SC', cursive;
     text-shadow: -0 0 20px rgba(0, 0, 0, 0.7), 0 -0 20px rgba(0, 0, 0, 0.7),
         -0 -0 20px rgba(0, 0, 0, 0.7);
 }
 
 form {
-    position: fixed;
-    top: 0;
+    position: absolute;
+    top:10px;
     background-color: transparent;
     font-size: 20px;
     color: white;
+}
+
+button {
+    font-size: 25px;
+    font-family: fantasy;
+    width:50px;
+    height:50px;
+    background-color: crimson;
+    color: white;
+    border-radius: 50%;
+    border-color: transparent;
+    box-shadow: -0 0 20px rgba(0, 0, 0, 0.7), 0 -0 20px rgba(0, 0, 0, 0.7),
+        -0 -0 20px rgba(0, 0, 0, 0.7);
+}
+
+button:hover {
+    color: yellow;
+}
+
+#fileInput{
+    width:200px;
     
 }
 
@@ -38,20 +56,16 @@ input {
 
 #card {
     align-self: flex-start;
-    margin-top: 100px;
     max-height: 400px; 
     /* transition: 1s; */
-    margin: 0;
-    padding: 50px;
-  
+    padding: 85px;
+    margin:30px;
+    background-color: rgba(255, 255, 255, 0.062);
+    border-radius: 2vh;
 }
 
 #card:hover {
-    /* transition: 1s;  */
-    /* padding: 15px; */
     background-color: rgba(0, 0, 0, 0.808);
-    box-shadow: -0 0 20px rgba(0, 0, 0, 0.7), 0 -0 20px rgba(0, 0, 0, 0.7),
-        -0 -0 20px rgba(0, 0, 0, 0.7);
     border-radius: 5vh;
 }
 
@@ -76,18 +90,21 @@ input {
     overflow: visible;
     height: fit-content;
     min-height: 40px;
-    background-color: rgba(172, 255, 47, 0.39);
+    background-color: rgba(172, 255, 47, 0.178);
 }
 
 #imgbox {
     transition: 1s;
-    background-color: rgba(17, 0, 255, 0.37);
+     box-shadow: -2px 2px 0 rgba(255, 20, 204, 0.459),
+        2px -2px 0 rgba(255, 0, 0, 0.555),
+        2px 2px 0 rgba(252, 255, 0, 0.432),
+        -2px -2px 0 rgba(72, 255, 0, 0.479);
     border-radius: 50%;
-   
 }
 
 #imgbox:hover{
-   background-color: transparent
+   background-color: transparent;
+   box-shadow:none
 }
 
 img {
@@ -97,20 +114,26 @@ img {
     border-radius: 50%;
     padding: 15px;
     transition-delay: 0.3s;
-    box-shadow: -30px 30px 0 rgba(255, 251, 10, 0.459),
-        30px -30px 0 rgba(255, 0, 0, 0.555),
-        30px 30px 0 rgba(0, 255, 213, 0.432),
-        -30px -30px 0 rgba(72, 255, 0, 0.479);
+    box-shadow: -40px 40px 0 rgba(255, 251, 10, 0.459),
+        40px -40px 0 rgba(255, 0, 0, 0.555),
+        40px 40px 0 rgba(0, 255, 213, 0.432),
+        -40px -40px 0 rgba(72, 255, 0, 0.479);
     margin: 20px;
+    transition: 1.5s;
 }
 
 img:hover {
     width: 210px;
     height: 210px;
-    padding: 30px;
+    padding: 25px;
     border-radius: 60%;
-    box-shadow: -50px 50px 0 rgba(0, 255, 42, 0.74),
-        50px -50px 0 rgba(255, 61, 61, 0.74),
-        50px 50px 0 rgba(255, 102, 0, 0.747),
-        -50px -50px 0 rgba(255, 0, 221, 0.616);
+    box-shadow: -50px 50px 0 rgba(255, 0, 0, 0.74),
+        50px -50px 0 rgba(106, 255, 61, 0.74),
+        50px 50px 0 rgba(255, 0, 212, 0.747),
+        -50px -50px 0 rgba(235, 94, 0, 0.616);
 }
+
+/* font-family: 'Bangers', cursive;
+font-family: 'Bowlby One SC', cursive;
+font-family: 'Oi', cursive;
+font-family: 'Press Start 2P', cursive; */
