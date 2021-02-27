@@ -55,18 +55,16 @@ input {
 }
 
 #card {
-    align-self: flex-start;
     max-height: 400px; 
     /* transition: 1s; */
-    padding: 85px;
-    margin:30px;
-    background-color: rgba(255, 255, 255, 0.062);
+    margin: 150px 110px 0 110px;
+    background-color: transparent;
     border-radius: 2vh;
 }
 
 #card:hover {
-    background-color: rgba(0, 0, 0, 0.808);
-    border-radius: 5vh;
+     background-color: rgba(252, 255, 53, 0.089);
+    border-radius: 1vh;
 }
 
 #text {
@@ -83,14 +81,13 @@ input {
     padding: 0;
     margin: 45px;
     letter-spacing: 4px;
-
 }
 
 #text:hover {
     overflow: visible;
     height: fit-content;
     min-height: 40px;
-    background-color: rgba(172, 255, 47, 0.178);
+    background-color: rgba(172, 255, 47, 0.61);
 }
 
 #imgbox {
@@ -123,14 +120,14 @@ img {
 }
 
 img:hover {
-    width: 210px;
-    height: 210px;
+    width: 220px;
+    height: 220px;
     padding: 25px;
-    border-radius: 60%;
     box-shadow: -50px 50px 0 rgba(255, 0, 0, 0.74),
         50px -50px 0 rgba(106, 255, 61, 0.74),
         50px 50px 0 rgba(255, 0, 212, 0.747),
         -50px -50px 0 rgba(235, 94, 0, 0.616);
+        background-color: rgba(0, 0, 0, 0.514)
 }
 
 /* font-family: 'Bangers', cursive;
