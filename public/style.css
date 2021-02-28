@@ -4,9 +4,9 @@
 }
 
 body {
-    background-color: black;
+    background-color: rgba(46, 139, 86, 0.486);
     min-height: 100vh;
-    background-image: url("deepspace.gif");
+    /* background-image: url("deepspace.gif"); */
     background-size:contain;
     display: flex;
     flex-direction: column;
