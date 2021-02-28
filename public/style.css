@@ -1,13 +1,19 @@
+* {
+    margin:0;
+
+}
+
 body {
     background-color: black;
     min-height: 100vh;
     background-image: url("deepspace.gif");
-    background-size: cover;
+    background-size:contain;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
+
 
 .main {
     display: flex;
@@ -16,8 +22,8 @@ body {
     align-items: center;
     text-align: center;
    font-family: 'Bowlby One SC', cursive;
-    text-shadow: -0 0 20px rgba(0, 0, 0, 0.7), 0 -0 20px rgba(0, 0, 0, 0.7),
-        -0 -0 20px rgba(0, 0, 0, 0.7);
+    text-shadow: -0 0 10px rgba(0, 0, 0, 0.7), 0 -0 10px rgba(0, 0, 0, 0.7),
+        -0 -0 10px rgba(0, 0, 0, 0.7),-0 -0 10px rgba(0, 0, 0, 0.7);
 }
 
 form {
@@ -37,8 +43,8 @@ button {
     color: white;
     border-radius: 50%;
     border-color: transparent;
-    box-shadow: -0 0 20px rgba(0, 0, 0, 0.7), 0 -0 20px rgba(0, 0, 0, 0.7),
-        -0 -0 20px rgba(0, 0, 0, 0.7);
+    box-shadow: -0 0 15px rgba(0, 0, 0, 0.7), 0 -0 15px rgba(0, 0, 0, 0.7),
+        -0 -0 15px rgba(0, 0, 0, 0.7),-0 -0 15px rgba(0, 0, 0, 0.7);
 }
 
 button:hover {
@@ -65,6 +71,7 @@ input {
 #card:hover {
      background-color: rgba(252, 255, 53, 0.089);
     border-radius: 1vh;
+
 }
 
 #text {
@@ -73,7 +80,7 @@ input {
     height: 40px;
     color: rgb(255, 255, 255);
     overflow: hidden;
-    text-shadow: -2px 2px 0 black, 2px -2px 0 black, -2px -2px 0 black;
+    text-shadow: -0px 0px 5px black, 0px -0px 5px black, -0px -0px 5px black,-0px 0px 5px black;
     text-align: center;
     background-color: rgba(53, 220, 20, 0.274);
     border-radius: 2vh;
@@ -100,7 +107,7 @@ input {
 }
 
 #imgbox:hover{
-   background-color: transparent;
+   background-color: black;
    box-shadow:none
 }
 
@@ -123,11 +130,12 @@ img:hover {
     width: 220px;
     height: 220px;
     padding: 25px;
-    box-shadow: -50px 50px 0 rgba(255, 0, 0, 0.74),
-        50px -50px 0 rgba(106, 255, 61, 0.74),
-        50px 50px 0 rgba(255, 0, 212, 0.747),
-        -50px -50px 0 rgba(235, 94, 0, 0.616);
-        background-color: rgba(0, 0, 0, 0.514)
+    box-shadow: -60px 60px 0 rgba(255, 0, 0, 0.74),
+        60px -60px 0 rgba(106, 255, 61, 0.74),
+        60px 60px 0 rgba(255, 0, 212, 0.747),
+        -60px -60px 0 rgba(235, 94, 0, 0.616);
+        background-color: rgba(0, 0, 0, 0.514);
+        opacity: 100%;
 }
 
 /* font-family: 'Bangers', cursive;
