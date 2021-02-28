@@ -7,16 +7,16 @@ const path = require("path");
 const s3 = require('./s3');
 const {s3Url} = require('./config');
 
-const cookieSession = require("cookie-session");
+// const cookieSession = require("cookie-session");
 
-app.use(
-    cookieSession({
-        secret: `O Brother, Where @rt Thou?`,
-        maxAge: 1000 * 60 * 60 * 24 * 14,
-    })
-);
+// app.use(
+//     cookieSession({
+//         secret: `O Brother, Where @rt Thou?`,
+//         maxAge: 1000 * 60 * 60 * 24 * 14,
+//     })
+// );
 
-app.use(express.urlencoded({ extended: false }));
+// app.use(express.urlencoded({ extended: false }));
 
 app.use(express.static("public"));
 
