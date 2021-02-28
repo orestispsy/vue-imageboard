@@ -8,9 +8,16 @@
 </head>
 <body>
     <div class="main">
-        
+
+        <!-- <div v-if="login">
+        <form >
+            <span>Password ⯈</span>
+            <input v-model="password" type="password" name="password" placeholder="Enter Password">
+            <button @click.prevent="handleLogin">Go!</button>
+        </form>
+        </div>   -->
+     
         <form>
-          
             <span>Artist ⯈</span>
             <input v-model="title" type="text" name="title" placeholder="title">
             <span>Description ⯈</span>
@@ -21,16 +28,18 @@
             <input @change="handleChange" type="file" name="file" accept="image/*" id="fileInput">
             <button @click.prevent="handleClick">Go!</button>
         </form>
-       
+    
         <div id="card"
             v-for="image in images" 
-            :key="image.id"      
+            :key="image.id"
          >
          <div id="imgbox">
              <a :href=" image.url "><img :src= "image.url" :alt="image.description"></a> 
              </div>
             <div id="text">{{image.title}}</div>              
-        </div> 
+        </div>
+      
+      
     </div>
     <script src="/js/vue.js"></script>
     <script src="/js/axios.min.js"></script>
