@@ -7,8 +7,8 @@ new Vue({
         username: "",
         file: null,
         password: "",
-        seen: true,
-        login: false,
+        // seen: true,
+        // login: false,
     },
     mounted: function () {
         var self = this;

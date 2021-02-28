@@ -4,10 +4,10 @@
 }
 
 body {
-    background-color: rgba(46, 139, 86, 0.486);
-    min-height: 100vh;
+    background-color: rgba(46, 139, 86, 0.425);
+    min-height:100vh;
     /* background-image: url("deepspace.gif"); */
-    background-size:contain;
+    /* background-size:200vh; */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -61,7 +61,7 @@ input {
 }
 
 #card {
-    max-height: 400px; 
+    max-height: 350px; 
     /* transition: 1s; */
     margin: 150px 110px 0 110px;
     background-color: transparent;
