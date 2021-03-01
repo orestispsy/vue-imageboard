@@ -7,8 +7,6 @@ new Vue({
         username: "",
         file: null,
         password: "",
-        // seen: true,
-        // login: false,
     },
     mounted: function () {
         var self = this;
@@ -61,30 +59,5 @@ new Vue({
             console.log("handle change is running!");
             this.file = e.target.files[0];
         },
-
-        // handleLogin: function (e) {
-        //     // e.preventDefault()
-        //     var formData = new FormData();
-        //     formData.append("password", this.password);
-        //     var self = this;
-        //     axios
-        //         .post("/imageboard", formData)
-        //         .then(function (response) {
-        //             console.log("LOGIN response",response)
-        //             if (response.data.password) {
-        //                 console.log("heyho", response.data.password);
-        // compare(req.body.password, OBrotherWhereartThou_7457545754756)
-        //     .then((match) => {
-        //         if (match) {
-        //             req.session.login = true;
-        //             this.seen = true;
-        //             this.login = false;
-        //         }})
-        //             } else { console.log("NOTHING")}
-        //         })
-        //         .catch(function (err) {
-        //             console.log("error from post req", err);
-        //         });
-        // },
     },
 });

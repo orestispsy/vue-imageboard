@@ -4,10 +4,9 @@
 }
 
 body {
-    background-color: rgba(46, 139, 86, 0.425);
+    background-color: black;
     min-height:100vh;
-    /* background-image: url("deepspace.gif"); */
-    /* background-size:200vh; */
+    background: url("lines.jpg");
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -66,6 +65,7 @@ input {
     margin: 150px 110px 0 110px;
     background-color: transparent;
     border-radius: 2vh;
+
 }
 
 #card:hover {
@@ -107,7 +107,7 @@ input {
 }
 
 #imgbox:hover{
-   background-color: black;
+   background-color: transparent;
    box-shadow:none
 }
 
