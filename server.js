@@ -7,16 +7,7 @@ const path = require("path");
 const s3 = require('./s3');
 const {s3Url} = require('./config');
 
-// const cookieSession = require("cookie-session");
-
-// app.use(
-//     cookieSession({
-//         secret: `O Brother, Where @rt Thou?`,
-//         maxAge: 1000 * 60 * 60 * 24 * 14,
-//     })
-// );
-
-// app.use(express.urlencoded({ extended: false }));
+const { compare } = require("./utils/bc.js");
 
 app.use(express.static("public"));
 
@@ -38,45 +29,13 @@ const uploader = multer({
     },
 });
 
-// app.get("/login", (req, res) => {
-//     if (req.session.login) {
-//         res.redirect("/imageboard");
-//     } else {
-//         res.render(`<h1>Access to this Page is not allowed without Password.</h1>
-//     `);
-//     }
-// });
 
-// app.post("/imageboard", (req, res) => {
-//     if (req.body.password) {
-//         console.log("PASSWORD", req.body.password)
-//         compare(req.body.password, OBrotherWhereartThou_7457545754756).then(
-//             (match) => {
-//                 if (match) {
-//                     req.session.login = true;
-//                     this.seen = true;
-//                     this.login = false;
-//                 }
-//             }
-//         );           
-         
-//     } else {
-//         return
-//     }
-// });
-
-
-app.get("/imageboard", (req, res) => {
-    // if (req.session.login) {
+app.get("/imageboard", (req, res) => { 
     db.getAllImages()
         .then(({ rows }) => {
             res.json(rows);
         })
         .catch((err) => console.log(err));
-    // }
-    // else {
-    //    
-    // }
 });
 
 app.post("/upload", uploader.single("file"), s3.upload, (req, res) => {
