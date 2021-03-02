@@ -19,17 +19,37 @@
             <input @change="handleChange" type="file" name="file" accept="image/*" id="fileInput">
             <button @click.prevent="handleClick">Go!</button>
         </form>
-    
+<!-- //////////  COMPONENT  //////////// -->
+
+        <card-component v-if="cardSelected"
+        v-bind:card-id="cardSelected" @remove="closeCard"></card-component>
+      
+<!-- /////////////////////////////////// -->
         <div id="card"
+            v-if="seen"
             v-for="image in images" 
             :key="image.id"
+            @click="selectCard(image.id)"
          >
          <div id="imgbox">
-             <a :href=" image.url "><img :src= "image.url" :alt="image.description"></a> 
+             <img  id="menuImage" :src= "image.url" :alt="image.description"> 
              </div>
             <div id="text">{{image.title}}</div>              
         </div>
     </div>
+<!-- //////////  TEMPLATE  //////////// -->
+
+    <script id="individual-image" type="text/x-template">
+        <div class="template" @mouseleave="unPop">
+            <img :src="url" :alt="title" >
+            <p>{{username}}</p>
+            <p>{{title}}</p>
+            <p>{{description}}</p>
+            <p>{{created_at}}</p>
+        </div>
+    </script>
+
+<!-- ////////////////////////////////// -->
     <script src="/js/vue.js"></script>
     <script src="/js/axios.min.js"></script>
     <script src="/js/script.js"></script>

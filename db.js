@@ -22,3 +22,11 @@ module.exports.addImage = (url, username, title, description) => {
     console.log("q: ", q);
     return db.query(q, params);
 };
+
+module.exports.getSelectedImage = (id) => {
+    const q = `
+        SELECT * FROM images WHERE id = $1
+    `;
+    const params=[id];
+    return db.query(q, params);
+};
