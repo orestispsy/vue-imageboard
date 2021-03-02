@@ -7,8 +7,6 @@ const path = require("path");
 const s3 = require('./s3');
 const {s3Url} = require('./config');
 
-const { compare } = require("./utils/bc.js");
-
 app.use(express.static("public"));
 
 const diskStorage = multer.diskStorage({
@@ -37,6 +35,17 @@ app.get("/imageboard", (req, res) => {
         })
         .catch((err) => console.log(err));
 });
+
+app.get("/imageboard/:selection", (req, res) => {
+    console.log("Requested Card Id",req.params.selection)
+    db.getSelectedImage(req.params.selection)
+        .then(({ rows }) => {
+            res.json(rows);
+        })
+        .catch((err) => console.log(err));
+});
+
+
 
 app.post("/upload", uploader.single("file"), s3.upload, (req, res) => {
     const {url, username, title, description} = req.body;

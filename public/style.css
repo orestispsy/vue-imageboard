@@ -4,9 +4,9 @@
 }
 
 body {
-    background-color: black;
+    background-color: rgba(220, 20, 20, 0.733);
     min-height:100vh;
-    background: url("lines.jpg");
+    /* background: url("dots.gif"); */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -107,11 +107,11 @@ input {
 }
 
 #imgbox:hover{
-   background-color: transparent;
+   background-color: black;
    box-shadow:none
 }
 
-img {
+#menuImage {
     width: 200px;
     height: 200px;
     opacity: 90%;
@@ -126,7 +126,7 @@ img {
     transition: 1.5s;
 }
 
-img:hover {
+#menuImage:hover {
     width: 220px;
     height: 220px;
     padding: 25px;
@@ -136,6 +136,13 @@ img:hover {
         -60px -60px 0 rgba(235, 94, 0, 0.616);
         background-color: rgba(0, 0, 0, 0.514);
         opacity: 100%;
+}
+
+.template, h3 {
+  
+    background-color: rgba(0, 0, 0, 0.144);
+    color: white;
+
 }
 
 /* font-family: 'Bangers', cursive;
