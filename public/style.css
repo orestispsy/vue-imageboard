@@ -4,7 +4,7 @@
 }
 
 body {
-    background-color: rgba(220, 20, 20, 0.733);
+    background-color: rgba(46, 139, 86, 0.527);
     min-height:100vh;
     /* background: url("dots.gif"); */
     display: flex;
@@ -138,11 +138,23 @@ input {
         opacity: 100%;
 }
 
-.template, h3 {
+.imageTemplate {
   
     background-color: rgba(0, 0, 0, 0.144);
     color: white;
+      display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+ 
+}
 
+.commentsTemplate {
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
 }
 
 /* font-family: 'Bangers', cursive;

@@ -34,6 +34,25 @@ Vue.component("card-component", {
     }
 });
 
+Vue.component("comments-component", {
+    props: ["cardId"],
+    template: "#comments-template",
+    data: function () {
+        return {
+            comments: "",
+            username: "",
+            comment: "",
+        };
+    },
+    props: ["imagedId"],
+    mounted: function () {
+ 
+    },
+    methods: {
+      
+    },
+});
+
 new Vue({
     el: ".main",
     data: {
