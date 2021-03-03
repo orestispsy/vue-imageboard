@@ -69,7 +69,7 @@
                 <span>Comment ⯈</span>
             <input v-model="comment" type="text" name="comment" placeholder="">
             <span>Username ⯈</span>
-          <input v-model="username" type="text" name="username" placeholder="username">
+          <input v-model="username" type="text" name="username" placeholder="username" ref="fileInput">
             
             <button @click.prevent="handleCommentsClick">Go!</button>
             </div>
