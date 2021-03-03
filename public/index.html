@@ -21,8 +21,8 @@
         </form>
 <!-- //////////  COMPONENTS  //////////// -->
 
-        <card-component v-if="cardSelected"
-        v-bind:card-id="cardSelected" @remove="closeCard"></card-component>
+        <card-component v-if="cardSelectedId"
+        v-bind:card-id="cardSelectedId" @remove="closeCard"></card-component>
 
         
       
@@ -31,11 +31,13 @@
             v-if="seen"
             v-for="image in images" 
             :key="image.id"
-            @click="selectCard(image.id)"
+
          >
+         <a :href="'#' + image.id" @click="selectCard(image.id)">
          <div id="imgbox">
              <img  id="menuImage" :src= "image.url" :alt="image.description"> 
              </div>
+             </a>
             <div id="text">{{image.title}}</div>              
         </div>
     </div>

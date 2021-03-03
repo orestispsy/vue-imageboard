@@ -28,7 +28,7 @@ module.exports.getSelectedImage = (id) => {
     const q = `
         SELECT * FROM images WHERE id = $1
     `;
-    const params=[id];
+    const params = [id];
     return db.query(q, params);
 };
 
@@ -39,8 +39,8 @@ module.exports.getSelectedComments = (id) => {
     const params = [id];
     return db.query(q, params);
 };
-``
-module.exports.addComment = (username,img_id,comment) => {
+``;
+module.exports.addComment = (username, img_id, comment) => {
     const q = `
         INSERT INTO comments (username, img_id, comment)
         VALUES ($1, $2, $3)

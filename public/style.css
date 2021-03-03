@@ -1,11 +1,10 @@
 * {
-    margin:0;
-
+    margin: 0;
 }
 
 body {
     background-color: rgba(46, 139, 86, 0.527);
-    min-height:100vh;
+    min-height: 100vh;
     background: url("lines.jpg");
     background-attachment: fixed;
     background-position: center;
@@ -15,21 +14,20 @@ body {
     align-items: center;
 }
 
-
 .main {
     display: flex;
-     flex-wrap: wrap;
+    flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
     text-align: center;
-   font-family: 'Bowlby One SC', cursive;
+    font-family: "Bowlby One SC", cursive;
     text-shadow: -0 0 10px rgba(0, 0, 0, 0.7), 0 -0 10px rgba(0, 0, 0, 0.7),
-        -0 -0 10px rgba(0, 0, 0, 0.7),-0 -0 10px rgba(0, 0, 0, 0.7);
+        -0 -0 10px rgba(0, 0, 0, 0.7), -0 -0 10px rgba(0, 0, 0, 0.7);
 }
 
 form {
     position: absolute;
-    top:10px;
+    top: 10px;
     background-color: transparent;
     font-size: 20px;
     color: white;
@@ -38,23 +36,22 @@ form {
 button {
     font-size: 25px;
     font-family: fantasy;
-    width:50px;
-    height:50px;
+    width: 50px;
+    height: 50px;
     background-color: crimson;
     color: white;
     border-radius: 50%;
     border-color: transparent;
     box-shadow: -0 0 15px rgba(0, 0, 0, 0.7), 0 -0 15px rgba(0, 0, 0, 0.7),
-        -0 -0 15px rgba(0, 0, 0, 0.7),-0 -0 15px rgba(0, 0, 0, 0.7);
+        -0 -0 15px rgba(0, 0, 0, 0.7), -0 -0 15px rgba(0, 0, 0, 0.7);
 }
 
 button:hover {
     color: yellow;
 }
 
-#fileInput{
-    width:200px;
-    
+#fileInput {
+    width: 200px;
 }
 
 input {
@@ -62,18 +59,16 @@ input {
 }
 
 #card {
-    max-height: 350px; 
+    max-height: 350px;
     /* transition: 1s; */
     margin: 150px 110px 0 110px;
     background-color: transparent;
     border-radius: 2vh;
-
 }
 
 #card:hover {
-     background-color: rgba(252, 255, 53, 0.089);
+    background-color: rgba(252, 255, 53, 0.089);
     border-radius: 1vh;
-
 }
 
 #text {
@@ -82,7 +77,8 @@ input {
     height: 40px;
     color: rgb(255, 255, 255);
     overflow: hidden;
-    text-shadow: -0px 0px 5px black, 0px -0px 5px black, -0px -0px 5px black,-0px 0px 5px black;
+    text-shadow: -0px 0px 5px black, 0px -0px 5px black, -0px -0px 5px black,
+        -0px 0px 5px black;
     text-align: center;
     background-color: rgba(53, 220, 20, 0.274);
     border-radius: 2vh;
@@ -101,16 +97,15 @@ input {
 
 #imgbox {
     transition: 1s;
-     box-shadow: -2px 2px 0 rgba(255, 20, 204, 0.459),
-        2px -2px 0 rgba(255, 0, 0, 0.555),
-        2px 2px 0 rgba(252, 255, 0, 0.432),
+    box-shadow: -2px 2px 0 rgba(255, 20, 204, 0.459),
+        2px -2px 0 rgba(255, 0, 0, 0.555), 2px 2px 0 rgba(252, 255, 0, 0.432),
         -2px -2px 0 rgba(72, 255, 0, 0.479);
     border-radius: 50%;
 }
 
-#imgbox:hover{
-   background-color: black;
-   box-shadow:none
+#imgbox:hover {
+    background-color: black;
+    box-shadow: none;
 }
 
 #menuImage {
@@ -136,19 +131,17 @@ input {
         60px -60px 0 rgba(106, 255, 61, 0.74),
         60px 60px 0 rgba(255, 0, 212, 0.747),
         -60px -60px 0 rgba(235, 94, 0, 0.616);
-        background-color: rgba(0, 0, 0, 0.514);
-        opacity: 100%;
+    background-color: rgba(0, 0, 0, 0.514);
+    opacity: 100%;
 }
 
 .imageTemplate {
-  
     background-color: rgba(0, 0, 0, 0.144);
     color: white;
-      display: flex;
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
- 
 }
 
 .commentsTemplate {

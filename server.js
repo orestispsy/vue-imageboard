@@ -4,8 +4,8 @@ const db = require("./db");
 const multer = require("multer");
 const uidSafe = require("uid-safe");
 const path = require("path");
-const s3 = require('./s3');
-const {s3Url} = require('./config');
+const s3 = require("./s3");
+const { s3Url } = require("./config");
 
 app.use(express.static("public"));
 
@@ -29,7 +29,7 @@ const uploader = multer({
 
 app.use(express.json());
 
-app.get("/imageboard", (req, res) => { 
+app.get("/imageboard", (req, res) => {
     db.getAllImages()
         .then(({ rows }) => {
             res.json(rows);
@@ -38,7 +38,7 @@ app.get("/imageboard", (req, res) => {
 });
 
 app.get("/imageboard/:selection", (req, res) => {
-    console.log("Requested Card Id",req.params.selection)
+    console.log("Requested Card Id", req.params.selection);
     db.getSelectedImage(req.params.selection)
         .then(({ rows }) => {
             res.json(rows);
@@ -56,39 +56,35 @@ app.get("/comments/:selection", (req, res) => {
 });
 
 app.post("/addcomment", (req, res) => {
-    console.log("comments body",req.body)
+    console.log("comments body", req.body);
     const { username, img_id, comment } = req.body;
-  
 
-        db.addComment(username, img_id, comment)
-            .then(({ rows }) => {
-                res.json({ postedComment: rows[0] });
-            })
-            .catch(function (err) {
-                console.log(err);
-            });
-  
+    db.addComment(username, img_id, comment)
+        .then(({ rows }) => {
+            res.json({ postedComment: rows[0] });
+        })
+        .catch(function (err) {
+            console.log(err);
+        });
 });
 
-
-
-
 app.post("/upload", uploader.single("file"), s3.upload, (req, res) => {
-    const {url, username, title, description} = req.body;
-    const {filename} = req.file;
+    const { url, username, title, description } = req.body;
+    const { filename } = req.file;
     const upload = {
         url: s3Url + filename,
         username: username,
         title: title,
         descripton: description,
     };
-    
+
     if (req.file) {
-       db.addImage(s3Url + filename, username, title, description).then(({rows}) =>
-       {
-            upload.id=rows.id;
-            res.json({ uploadedFile: upload });
-       })
+        db.addImage(s3Url + filename, username, title, description).then(
+            ({ rows }) => {
+                upload.id = rows.id;
+                res.json({ uploadedFile: upload });
+            }
+        );
     } else {
         res.json({
             success: false,
