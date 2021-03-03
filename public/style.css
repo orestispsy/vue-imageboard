@@ -6,7 +6,9 @@
 body {
     background-color: rgba(46, 139, 86, 0.527);
     min-height:100vh;
-    /* background: url("dots.gif"); */
+    background: url("lines.jpg");
+    background-attachment: fixed;
+    background-position: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -152,7 +154,7 @@ input {
 .commentsTemplate {
     color: white;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: flex-end;
     align-items: center;
 }
