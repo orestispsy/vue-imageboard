@@ -144,6 +144,11 @@ input {
     align-items: center;
 }
 
+.imageTemplate img {
+    max-width: 500px;
+    max-height: 500px;
+}
+
 .commentsTemplate {
     color: white;
     display: flex;

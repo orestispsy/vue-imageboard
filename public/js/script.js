@@ -97,7 +97,21 @@ Vue.component("comments-component", {
                 });
         },
     },
-   
+    watch: {
+        imgId: function () {
+            console.log("Selected Image Id in Watcher", this.imgId);
+            var self = this;
+            axios
+                .get("/comments/" + this.imgId)
+                .then(function (response) {
+                    console.log("COMMENTS RESPONSE DATA", response.data);
+                    self.comments = response.data;
+                })
+                .catch(function (err) {
+                    console.log("error in axios", err);
+                });
+        },
+    },
 });
 
 new Vue({
@@ -129,6 +143,7 @@ new Vue({
             })
     },
     methods: {
+        
         handleClick: function (e) {
             // e.preventDefault()
             var formData = new FormData();
@@ -152,13 +167,14 @@ new Vue({
                 .then(function (response) {
                     console.log(
                         "response from post req: ",
-                        response.data.uploadedFile
+                        response.data.uploadedFile,
+
                     );
                     self.images.unshift(response.data.uploadedFile);
                     self.title = "";
                     self.description = "";
                     self.username = "";
-                    self.file = "";
+                    document.querySelector('input[type="file"]').value = "";
                 })
                 .catch(function (err) {
                     console.log("error from post req", err);

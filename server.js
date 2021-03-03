@@ -71,18 +71,12 @@ app.post("/addcomment", (req, res) => {
 app.post("/upload", uploader.single("file"), s3.upload, (req, res) => {
     const { url, username, title, description } = req.body;
     const { filename } = req.file;
-    const upload = {
-        url: s3Url + filename,
-        username: username,
-        title: title,
-        descripton: description,
-    };
+
 
     if (req.file) {
         db.addImage(s3Url + filename, username, title, description).then(
             ({ rows }) => {
-                upload.id = rows.id;
-                res.json({ uploadedFile: upload });
+                res.json({ uploadedFile: rows[0]});
             }
         );
     } else {
