@@ -35,20 +35,53 @@ Vue.component("card-component", {
 });
 
 Vue.component("comments-component", {
-    props: ["cardId"],
     template: "#comments-template",
     data: function () {
         return {
-            comments: "",
+            comments: [],
             username: "",
             comment: "",
+            
         };
     },
-    props: ["imagedId"],
+    props: ["imgId"],
     mounted: function () {
+        console.log("Selected Image Id", this.imgId);
+        var self = this;
+        axios
+            .get("/comments/" + this.imgId)
+            .then(function (response) {
+                console.log("COMMENTS RESPONSE DATA",response.data);
+                self.comments=response.data
+            })
+            .catch(function (err) {
+                console.log("error in axios", err);
+            });
  
     },
     methods: {
+        handleCommentsClick: function (e) {
+           
+            const commentData = {
+                username: this.username,
+                comment: this.comment,
+                img_id: this.imgId
+            }
+            console.log("comment data", commentData)
+            var self = this;
+            axios
+                .post("/addcomment", commentData)
+                .then(function (response) {
+                    
+                    self.comments.unshift(response.data.postedComment);
+                    self.username = ""
+                    self.comment = ""
+ 
+                })
+                .catch(function (err) {
+                    console.log("error from post req", err);
+                });
+            }
       
     },
 });
@@ -63,6 +96,7 @@ new Vue({
         file: null,
         password: "",
         cardSelected: null,
+
         seen: true
     },
     mounted: function () {
@@ -71,9 +105,7 @@ new Vue({
             .get("/imageboard")
             .then(function (response) {
                 console.log("response", response.data);
-                self.images = response.data.sort((a, b) => {
-                    return new Date(b.created_at) - new Date(a.created_at);
-                });
+                self.images = response.data
             })
             .catch(function (err) {
                 console.log("error in axios", err);
@@ -106,6 +138,10 @@ new Vue({
                         response.data.uploadedFile
                     );
                     self.images.unshift(response.data.uploadedFile);
+                    self.title="";
+                    self.description="";
+                    self.username="";
+                    self.file="";
                 })
                 .catch(function (err) {
                     console.log("error from post req", err);
@@ -117,10 +153,12 @@ new Vue({
             this.file = e.target.files[0];
         },
         selectCard: function(id) {
+
             this.cardSelected=id;
              this.seen = false;
         },
         closeCard: function() {
+
             this.cardSelected = null;
             this.seen = true;
         },

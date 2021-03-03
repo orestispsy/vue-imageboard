@@ -27,6 +27,7 @@ const uploader = multer({
     },
 });
 
+app.use(express.json());
 
 app.get("/imageboard", (req, res) => { 
     db.getAllImages()
@@ -44,6 +45,31 @@ app.get("/imageboard/:selection", (req, res) => {
         })
         .catch((err) => console.log(err));
 });
+
+app.get("/comments/:selection", (req, res) => {
+    console.log("Requested Image Id", req.params.selection);
+    db.getSelectedComments(req.params.selection)
+        .then(({ rows }) => {
+            res.json(rows);
+        })
+        .catch((err) => console.log(err));
+});
+
+app.post("/addcomment", (req, res) => {
+    console.log("comments body",req.body)
+    const { username, img_id, comment } = req.body;
+  
+
+        db.addComment(username, img_id, comment)
+            .then(({ rows }) => {
+                res.json({ postedComment: rows[0] });
+            })
+            .catch(function (err) {
+                console.log(err);
+            });
+  
+});
+
 
 
 

@@ -8,7 +8,7 @@
 </head>
 <body>
     <div class="main">
-        <form v-if="seen">
+        <form v-if="seen" method='POST'>
             <span>Artist ⯈</span>
             <input v-model="title" type="text" name="title" placeholder="title">
             <span>Description ⯈</span>
@@ -41,18 +41,18 @@
     </div>
 
   
-<!-- ////////// MODAL TEMPLATE  //////////// -->
+<!-- ////////// IMAGE TEMPLATE  //////////// -->
 
     <script id="individual-image" type="text/x-template">
-        <div class="imageTemplate" @click="unPop">
+        <div class="imageTemplate" @dblclick="unPop">
             <img :src="url" :alt="title" >
             <p>{{username}}</p>
             <p>{{title}}</p>
             <p>{{description}}</p>
             <p>{{created_at}}</p>
-        </div>
-       <comments-component v-if="cardSelected" v-bind:image-id="cardSelected"
+             <comments-component v-bind:img-id="this.cardId"
         ></comments-component> 
+        </div>
     </script>
 
 <!-- ////////////////////////////////// -->
@@ -60,20 +60,19 @@
 <!-- ////////// COMMENTS TEMPLATE  //////////// -->
 
     <script id="comments-template" type="text/x-template">
-          <div class="commentsTemplate">
-
-
-            <form>
+        
+            <div class="commentsTemplate">
+                <p v-for="comment in comments" 
+            :key="comment.id">{{comment.comment}}</p> 
                 <span>Comment ⯈</span>
-            <input v-model="comment" type="text" name="comment" placeholder=" ">
+            <input v-model="comment" type="text" name="comment" placeholder="">
             <span>Username ⯈</span>
           <input v-model="username" type="text" name="username" placeholder="username">
             
-            <button @click.prevent="handleClick">Go!</button>
-            
-            </form>
-            <p> - COMMENTS COME HERE - {{comments}}</p> 
+            <button @click.prevent="handleCommentsClick">Go!</button>
             </div>
+            
+   
      
     </script>
 
