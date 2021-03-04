@@ -26,16 +26,16 @@ body {
 }
 
 form {
-    position: absolute;
-    top: 10px;
+    align-self: center;
     background-color: transparent;
     font-size: 20px;
     color: white;
+    padding-top:10px;
 }
 
 button {
-    font-size: 25px;
-    font-family: fantasy;
+    font-size: 18px;
+    font-family: "Bowlby One SC", cursive;
     width: 50px;
     height: 50px;
     background-color: crimson;
@@ -59,9 +59,9 @@ input {
 }
 
 #card {
-    max-height: 350px;
+    max-height: 400px;
     /* transition: 1s; */
-    margin: 150px 110px 0 110px;
+    margin: 50px 110px 0 110px;
     background-color: transparent;
     border-radius: 2vh;
 }
@@ -104,8 +104,7 @@ input {
 }
 
 #imgbox:hover {
-    background-color: black;
-    box-shadow: none;
+    background-color: transparent
 }
 
 #menuImage {
@@ -136,25 +135,70 @@ input {
 }
 
 .imageTemplate {
-    background-color: rgba(0, 0, 0, 0.144);
+    
     color: white;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    letter-spacing: 2px;
 }
 
 .imageTemplate img {
-    max-width: 500px;
-    max-height: 500px;
+    max-width: 700px;
+    max-height: 700px;
+    border-radius: 1vh;
+    margin:50px;
+    box-shadow: -0 0 15px rgba(0, 0, 0, 0.7), 0 -0 15px rgba(0, 0, 0, 0.7),
+        -0 -0 15px rgba(0, 0, 0, 0.7), -0 -0 15px rgba(0, 0, 0, 0.7);
 }
 
+.imageTemplate span {
+    color:yellow;
+    margin:10px;
+}
+
+
 .commentsTemplate {
-    color: white;
+    color: crimson;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     align-items: center;
+    letter-spacing: 2px;
+}
+
+.comments {
+    background-color: rgba(255, 255, 0, 0.295);
+    width:400px;
+    border-radius:2vh;
+    margin:50px;
+    padding:20px;
+}
+
+#more {
+    width: 120px;
+    height:120px;
+    position:fixed;
+    bottom:20px;
+    right:0px;
+    color:white;
+    background-image: url("fire.png");
+    background-size: cover;
+}
+
+#more div{
+    position:fixed;
+    bottom:20px;
+    right:40px;
+    letter-spacing: 1px;
+    cursor:pointer
+}
+
+#more div:hover{
+    color:crimson;
+    text-shadow: -1px 1px 0 yellow, 1px -1px 0 yellow, -1px -1px 0 yellow,
+        -1px 1px 0 yellow;
 }
 
 /* font-family: 'Bangers', cursive;
