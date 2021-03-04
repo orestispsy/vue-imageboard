@@ -46,6 +46,15 @@ app.get("/imageboard/:selection", (req, res) => {
         .catch((err) => console.log(err));
 });
 
+app.get("/get-next/:selection", (req, res) => {
+    console.log("Requested Image Id", req.params.selection);
+    db.getNextRes(req.params.selection)
+        .then(({ rows }) => {
+            res.json(rows);
+        })
+        .catch((err) => console.log(err));
+});
+
 app.get("/comments/:selection", (req, res) => {
     console.log("Requested Image Id", req.params.selection);
     db.getSelectedComments(req.params.selection)
@@ -58,9 +67,10 @@ app.get("/comments/:selection", (req, res) => {
 app.post("/addcomment", (req, res) => {
     console.log("comments body", req.body);
     const { username, img_id, comment } = req.body;
-
+    console.log("Inside Add Comments Body", username, img_id, comment);
     db.addComment(username, img_id, comment)
         .then(({ rows }) => {
+            console.log("Rows in addComments", rows);
             res.json({ postedComment: rows[0] });
         })
         .catch(function (err) {
@@ -72,11 +82,10 @@ app.post("/upload", uploader.single("file"), s3.upload, (req, res) => {
     const { url, username, title, description } = req.body;
     const { filename } = req.file;
 
-
     if (req.file) {
         db.addImage(s3Url + filename, username, title, description).then(
             ({ rows }) => {
-                res.json({ uploadedFile: rows[0]});
+                res.json({ uploadedFile: rows[0] });
             }
         );
     } else {

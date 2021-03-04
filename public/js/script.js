@@ -30,6 +30,7 @@ Vue.component("card-component", {
     methods: {
         unPop: function () {
             this.$emit("remove");
+            location.href = location.origin;
         },
     },
     watch: {
@@ -48,6 +49,8 @@ Vue.component("card-component", {
             })
             .catch(function (err) {
                 console.log("error in axios", err);
+                self.$emit("remove"); 
+                location.href = location.origin;
             });
     }
     },
@@ -94,6 +97,7 @@ Vue.component("comments-component", {
                 })
                 .catch(function (err) {
                     console.log("error from post req", err);
+                   
                 });
         },
     },
@@ -124,7 +128,8 @@ new Vue({
         file: null,
         password: "",
         cardSelectedId: location.hash.slice(1),
-        seen: true,
+        seen: !location.hash.slice(1),
+        more: !location.hash.slice(1),
     },
     mounted: function () {
         var self = this;
@@ -138,12 +143,11 @@ new Vue({
                 console.log("error in axios", err);
             });
 
-            window.addEventListener("hashchange", function (){
-                self.cardSelectedId = location.hash.slice(1);
-            })
+        window.addEventListener("hashchange", function () {
+            self.cardSelectedId = location.hash.slice(1);
+        });
     },
     methods: {
-        
         handleClick: function (e) {
             // e.preventDefault()
             var formData = new FormData();
@@ -167,8 +171,7 @@ new Vue({
                 .then(function (response) {
                     console.log(
                         "response from post req: ",
-                        response.data.uploadedFile,
-
+                        response.data.uploadedFile
                     );
                     self.images.unshift(response.data.uploadedFile);
                     self.title = "";
@@ -188,10 +191,28 @@ new Vue({
         selectCard: function (id) {
             this.cardSelectedId = id;
             this.seen = false;
+            this.more = false;
         },
         closeCard: function () {
             this.cardSelectedId = null;
             this.seen = true;
+            this.more = true;
+        },
+        moreResults: function () {
+            var self = this;
+            axios
+                .get("/get-next/" + this.images[this.images.length - 1].id)
+                .then(function (response) {
+                    for (var i = 0; i < response.data.length; i++) {
+                        self.images.push(response.data[i]);
+                    }
+                    if (!response.data[1]) {
+                        self.more = false;
+                    }
+                })
+                .catch(function (err) {
+                    console.log("error from post req", err);
+                });
         },
     },
 });

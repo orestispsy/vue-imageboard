@@ -9,11 +9,11 @@
 <body>
     <div class="main">
         <form v-if="seen" method='POST'>
-            <span>Artist ⯈</span>
-            <input v-model="title" type="text" name="title" placeholder="title">
+            <span>Title ⯈</span>
+            <input v-model="title" type="text" name="title" placeholder="Title">
             <span>Description ⯈</span>
-            <input v-model="description" type="text" name="description" placeholder="description">
-            <span>Username ⯈</span>
+            <input v-model="description" type="text" name="description" placeholder="Description">
+            <span>Your Name ⯈</span>
             <input v-model="username" type="text" name="username" placeholder="username">
             <span>Image ⯈</span>
             <input @change="handleChange" type="file" name="file" accept="image/*" id="fileInput">
@@ -21,7 +21,7 @@
         </form>
 <!-- //////////  COMPONENTS  //////////// -->
 
-        <card-component v-if="cardSelectedId"
+        <card-component v-if="!seen" 
         v-bind:card-id="cardSelectedId" @remove="closeCard"></card-component>
 
         
@@ -40,6 +40,8 @@
              </a>
             <div id="text">{{image.title}}</div>              
         </div>
+        <div id="more" v-if="more" @click="moreResults">
+            <div>next</div> </div>
     </div>
 
   
@@ -48,10 +50,10 @@
     <script id="individual-image" type="text/x-template">
         <div class="imageTemplate" @dblclick="unPop">
             <img :src="url" :alt="title" >
-            <p>{{username}}</p>
-            <p>{{title}}</p>
-            <p>{{description}}</p>
-            <p>{{created_at}}</p>
+            <p><span>Author ⯈</span>{{username}}</p>
+            <p><span>Title ⯈</span>{{title}}</p>
+            <p><span>Description ⯈</span>{{description}}</p>
+            <p><span>Date ⯈</span>{{created_at.slice(0, 10)}}</p>
              <comments-component v-bind:img-id="this.cardId"
         ></comments-component> 
         </div>
@@ -62,15 +64,15 @@
 <!-- ////////// COMMENTS TEMPLATE  //////////// -->
 
     <script id="comments-template" type="text/x-template">
-        
+        <div class="comments">
             <div class="commentsTemplate">
                 <p v-for="comment in comments" 
-            :key="comment.id">{{comment.comment}}</p> 
-                <span>Comment ⯈</span>
-            <input v-model="comment" type="text" name="comment" placeholder="">
-            <span>Username ⯈</span>
-          <input v-model="username" type="text" name="username" placeholder="username" ref="fileInput">
-            
+            :key="comment.id" style="max-width:300px;"><span style="color:yellow">{{comment.username}}</span> <br>{{comment.comment}}</p> 
+                <span>Leave a Comment</span>
+            <input v-model="comment" type="text" name="comment" placeholder="Say Something...">
+            <span>Your Name</span>
+          <input v-model="username" type="text" name="username" placeholder="Share your name !">
+         </div>   
             <button @click.prevent="handleCommentsClick">Go!</button>
             </div>
             
